@@ -1,3 +1,72 @@
-<html>
-Hello world 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Fotos</title>
+    <style>
+        /* Estilos CSS */
+        /* Estilos para los botones */
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        /* Contenedor de la imagen y descripción */
+        .image-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galería de Fotos</h1>
+    <!-- Botones para las fotos -->
+    <button class="btn" onclick="mostrarFoto(1)">Foto 1</button>
+    <button class="btn" onclick="mostrarFoto(2)">Foto 2</button>
+    <button class="btn" onclick="mostrarFoto(3)">Foto 3</button>
+
+    <!-- Contenedor de la imagen y descripción -->
+    <div class="image-container" id="image-container">
+        <!-- Aquí se mostrará la foto y la descripción -->
+    </div>
+
+    <script>
+        // Función para mostrar la foto y descripción correspondiente al botón
+        function mostrarFoto(numeroFoto) {
+            var imagen = "";
+            var descripcion = "";
+
+            // Seleccionar la imagen y descripción según el número de foto
+            switch(numeroFoto) {
+                case 1:
+                    imagen = "foto1.JPEG";
+                    descripcion = "Descripción de la Foto 1";
+                    break;
+                case 2:
+                    imagen = "foto2.JPEG";
+                    descripcion = "Descripción de la Foto 2";
+                    break;
+                case 3:
+                    imagen = "foto3.JPEG";
+                    descripcion = "Descripción de la Foto 3";
+                    break;
+                default:
+                    // Si el número de foto no coincide con ninguna, mostrar un mensaje de error
+                    imagen = "";
+                    descripcion = "Foto no encontrada";
+                    break;
+            }
+
+            // Mostrar la imagen y descripción en el contenedor correspondiente
+            document.getElementById("image-container").innerHTML = `
+                <img src="${imagen}" alt="Foto ${numeroFoto}" width="300">
+                <p>${descripcion}</p>
+            `;
+        }
+    </script>
+</body>
 </html>
